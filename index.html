@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="index.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+
+<script>
+let words = []
+ let final = words[words.length-1]
+let handleChange = (e)=>{
+  // alert('works')
+  // console.log("test",e.target.value)
+  words.push(e.target.value)
+
+  console.log(words)
+}
+
+let handleClick = () =>{
+  let final = words[words.length-1]
+  let maindiv = document.getElementsByClassName("main-div")[0]
+  console.log("ul", maindiv)
+  let li = document.createElement('li')
+
+  maindiv.append(li)
+  return li.append(final)
+
+}
+
+  let newDiv = document.createElement('div')
+  newDiv.setAttribute("class", "main-div")  
+  document.body.prepend(newDiv)
+
+  let input = document.createElement('input')
+  newDiv.append(input)
+  input.class = 'input-class'
+  input.setAttribute('placeholder', 'this is place')
+  input.addEventListener("change",handleChange)
+
+  let buttonOne = document.createElement('button')
+  buttonOne.innerHTML = "this is buttonOne"
+  newDiv.appendChild(buttonOne) 
+  buttonOne.setAttribute('class', "btn")
+  let ulist = document.createElement('ul')
+  buttonOne.addEventListener('click', handleClick)
+
+  let buttonTwo = document.createElement('button')
+  buttonTwo.innerHTML = 'this is button two'
+  newDiv.appendChild(buttonTwo)
+  buttonTwo.setAttribute('class', "btn")
+
+
+  newDiv.append(ulist)
+
+
+
+for (let i = 0; i < 3; i++){
+  let li = document.createElement('li')
+  li.innerHTML = "final"
+  ulist.append(li)
+li.setAttribute('class', "list-item")
+  
+}
+ ulist.id = 'main-list'
+</script>
+</html>
